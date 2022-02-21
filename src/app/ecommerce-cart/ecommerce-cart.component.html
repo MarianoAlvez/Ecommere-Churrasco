@@ -1,7 +1,11 @@
 <p class="title">Mi Carrito</p>
-<app-ecommerce-cart-item></app-ecommerce-cart-item>
-<app-ecommerce-cart-item></app-ecommerce-cart-item>
 
-<p class="total"><span class="total-label">total:</span> 00.00 $</p>
+  <app-ecommerce-cart-item
+  *ngFor="let item of cartItems$ | async"
+  [cartItem]="item"
+  (cartItemDelete)="deleteItem(item)"
+  ></app-ecommerce-cart-item>
+
+<p class="total"><span class="total-label">total:</span> {{ total$ | async | number: "1.2-2" }}  $</p>
 
 <button>Comprar</button>
