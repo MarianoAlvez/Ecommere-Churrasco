@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_BASE_URL: 'http://churrasco.uk.to:3005/products',
+  API_LOGIN: 'http://churrasco.uk.to:3005/login',
 };
 
 /*

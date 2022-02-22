@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 50px;
+  padding: 0 16px;
+  background-color: #5e00ea;
+  color: #fff;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+.logo:hover {
+  text-decoration: underline;
+}
+
+button {
+  display: grid;
+  place-items: center;
+  background: none;
+  padding: 8px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #7d29fa;
+}
+
+.cart {
+  position: relative;
+  top: 2px;
+}
+
+.cart img {
+  width: 22px;
+  height: 22px;
+}
+
+.cart span {
+  position: absolute;
+  top: -5px;
+  right: 1px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+}

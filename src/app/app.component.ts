@@ -1,10 +1,25 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  title = 'churrascoEcommerce';
+  isCartVisible = false;
+  isMenuOpened = false;
+
+  toggleCartVisibility(): void {
+    this.isCartVisible = !this.isCartVisible;
+  }
+
+  showMenu(): void {
+    this.isCartVisible = false;
+    this.isMenuOpened = true;
+  }
+
+  hideMenu(): void {
+    this.isMenuOpened = false;
+  }
 }
