@@ -1,0 +1,33 @@
+<h1>Inicia Sesión</h1>
+<form [formGroup]="loginForm">
+  <label>
+    Email
+    <input type="email" name="email" formControlName="email" />
+  </label>
+  <app-form-error-container [forControl]="emailControl">
+    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+    <app-form-error-msg forErrorCode="email"></app-form-error-msg>
+  </app-form-error-container>
+
+  <label>
+    Contraseña
+    <input type="password" name="password" formControlName="password" />
+  </label>
+  <app-form-error-container [forControl]="passwordControl">
+    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+  </app-form-error-container>
+
+  <app-form-error-container [forControl]="loginForm">
+    <app-form-error-msg forErrorCode="invalidCredentials"></app-form-error-msg>
+  </app-form-error-container>
+
+  <button
+    (click)="signIn()"
+    type="submit"
+    [disabled]="(loginForm.statusChanges | async) !== 'VALID'"
+  >
+    Iniciar Sesión
+  </button>
+</form>
+
+

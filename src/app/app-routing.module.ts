@@ -1,7 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IsLoggedInGuard } from './auth/is-logged-in.guard';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'catalog',
+    pathMatch: 'full',
+  },
+
+  {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+    canActivateChild: [IsLoggedInGuard],
+    canLoad: [IsLoggedInGuard],
+  },
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
