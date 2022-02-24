@@ -9,18 +9,18 @@ import { environment } from '../../environments/environment.prod';
   providedIn: 'root',
 })
 export class CatalogService {
-  private baseUrl = environment.API_BASE_URL;
+  private baseUrl = environment.API_PRODUCT;
   products$ = this.getAll();
 
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(`${this.baseUrl}/catalog/products`);
+    return this.httpClient.get<Product[]>(`${this.baseUrl}`);
   }
 
   getProduct(requestId: number): Observable<Product | null> {
     return this.httpClient
-      .get<Product>(`${this.baseUrl}/catalog/products/${requestId}`)
+      .get<Product>(`${this.baseUrl}/${requestId}`)
       .pipe(
         catchError((error) => {
           if (error.status === 404) {

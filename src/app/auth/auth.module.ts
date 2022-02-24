@@ -11,7 +11,7 @@ import { FormExtensionsModule } from '../form-extensions/form-extensions.module'
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    FormExtensionsModule,
+    FormExtensionsModule
   ],
 })
 export class AuthModule {}

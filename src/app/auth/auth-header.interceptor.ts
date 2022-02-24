@@ -25,11 +25,14 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
 
     const requestWithHeader = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${authToken}`,
+        'Content-Type' : 'application/json',
+        'Authorization' : `Bearer ${authToken}`,
       },
     });
 
     return next.handle(requestWithHeader);
+
+
   }
 
   private isThirdPartyRequest(url: string): boolean {

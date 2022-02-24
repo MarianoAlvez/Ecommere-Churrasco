@@ -2,11 +2,11 @@
 <form [formGroup]="loginForm">
   <label>
     Email
-    <input type="email" name="email" formControlName="email" />
+    <input type="username" name="username" formControlName="username" />
   </label>
-  <app-form-error-container [forControl]="emailControl">
+  <app-form-error-container [forControl]="usernameControl">
     <app-form-error-msg forErrorCode="required"></app-form-error-msg>
-    <app-form-error-msg forErrorCode="email"></app-form-error-msg>
+    <app-form-error-msg forErrorCode="username"></app-form-error-msg>
   </app-form-error-container>
 
   <label>
