@@ -7,7 +7,6 @@ import { environment } from '../../environments/environment';
 import { SuccessfulLoginDto } from './successful-login.dto';
 import { catchError, ignoreElements, tap } from 'rxjs/operators';
 import { InvalidCredentialsError } from './errors';
-import { Token } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root',

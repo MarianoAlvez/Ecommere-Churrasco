@@ -7,6 +7,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'catalog',
     pathMatch: 'full',
+    canActivateChild: [IsLoggedInGuard],
+    canLoad: [IsLoggedInGuard],
   },
 
   {
