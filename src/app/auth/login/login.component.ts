@@ -10,8 +10,8 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    username: new FormControl('challenge', [ Validators.required]),
-    password: new FormControl('ch411enge', [ Validators.required, Validators.minLength(6) ]),
+    username: new FormControl('', [ Validators.required]),
+    password: new FormControl('', [ Validators.required, Validators.minLength(6) ]),
   });
 
   get usernameControl(): FormControl {

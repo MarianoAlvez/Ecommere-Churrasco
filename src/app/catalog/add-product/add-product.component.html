@@ -1,0 +1,97 @@
+
+<h1>
+  Agregar Producto
+
+</h1>
+
+<br>
+
+<form [formGroup]="addProductForm"
+>
+  <div fxLayout="row"
+   fxLayoutGap="100px"
+   fxLayout.xs="column">
+
+  <div fxFlex="50" fxLayout="column">
+
+      <div fxLayout="row"
+           fxLayout.xs="column"
+           fxLayoutGap="20px">
+
+          <mat-form-field fxFlex="50" fxLayout.xs="column" >
+            <mat-label>Nombre del Producto</mat-label>
+            <input matInput type="text" formControlName="name" required >
+          </mat-form-field>
+
+          <mat-form-field fxFlex="50">
+            <mat-label>Descripción</mat-label>
+            <input matInput type="text" formControlName="description" required >
+          </mat-form-field>
+
+      </div>
+
+      <div fxLayout="row"
+           fxLayout.xs="column"
+           fxLayoutGap="20px">
+
+        <mat-form-field fxFlex="50">
+          <mat-label>Precio</mat-label>
+          <input matInput type="text" formControlName="price" required >
+        </mat-form-field>
+
+        <mat-form-field fxFlex="50">
+          <mat-label>Moneda</mat-label>
+          <mat-select formControlName="currency" required>
+            <mat-option *ngFor="let currency_list of currency_list"
+              [value]="currency_list.id">
+              {{ currency_list.desc }}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field fxFlex="100">
+          <mat-label>Foto Url</mat-label>
+          <input matInput type="url" formControlName="pictures" required [(ngModel)]="image" >
+      </mat-form-field>
+      </div>
+
+      <div fxLayout="row"
+        fxLayout.xs="column"
+        fxLayoutGap="20px">
+      <mat-form-field fxFlex="50">
+
+          <mat-label>Número de Referencia Único</mat-label>
+          <input matInput type="text" formControlName="SKU" required >
+      </mat-form-field>
+
+      <mat-form-field fxFlex="50">
+        <mat-label>Código</mat-label>
+        <input matInput type="text" formControlName="code" required >
+      </mat-form-field>
+      </div>
+
+      <br>
+
+
+      <div fxLayoutGap="100px" fxLayout="row">
+        <button mat-raised-button color="primary" (click)="addProduct()"
+          type="submit" [disabled]="addProductForm.invalid">
+          <mat-icon>save</mat-icon> Agregar
+        </button>
+
+        <button mat-raised-button color="primary" routerLink=""
+          type="submit" [disabled]="addProductForm.invalid">
+          <mat-icon>cancel</mat-icon> Cancelar
+        </button>
+    </div>
+  </div>
+
+  <div fxFlex="50">
+      <img class="image" src="{{image}}" alt="">
+  </div>
+
+</div>
+
+</form>

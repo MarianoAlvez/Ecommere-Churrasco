@@ -12,7 +12,7 @@ import { InvalidCredentialsError } from './errors';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = environment.API_LOGIN;
+  private baseUrl = environment.URL_BASE;
   private loggedIn = new BehaviorSubject<boolean>(false);
   loggedIn$ = this.loggedIn.asObservable();
   private _authToken: string | null = null;
@@ -24,7 +24,7 @@ export class AuthService {
 
   logIn(credentials: LoginCredentials): Observable<never> {
     return this.httpClient
-      .post<SuccessfulLoginDto>(`${this.baseUrl}`, credentials)
+      .post<SuccessfulLoginDto>(`${this.baseUrl}:3005/login`, credentials)
       .pipe(
         tap(({ token }) => this.handleSuccesfulLogin(token)),
         ignoreElements(),

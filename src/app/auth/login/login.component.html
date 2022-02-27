@@ -1,33 +1,35 @@
-<h1>Inicia Sesión</h1>
-<form [formGroup]="loginForm">
-  <label>
-    Email
-    <input type="username" name="username" formControlName="username" />
-  </label>
-  <app-form-error-container [forControl]="usernameControl">
-    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
-    <app-form-error-msg forErrorCode="username"></app-form-error-msg>
-  </app-form-error-container>
+<div>
+  <form [formGroup]="loginForm">
+    <label>
+      username
+      <mat-icon>perm_identity</mat-icon>
+      <mat-icon>user</mat-icon>
+      <input type="username" name="username" formControlName="username" placeholder="Username"/>
+    </label>
+    <app-form-error-container [forControl]="usernameControl">
+      <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+      <app-form-error-msg forErrorCode="username"></app-form-error-msg>
+    </app-form-error-container>
 
-  <label>
-    Contraseña
-    <input type="password" name="password" formControlName="password" />
-  </label>
-  <app-form-error-container [forControl]="passwordControl">
-    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
-  </app-form-error-container>
+    <label>
+      Contraseña
+      <mat-icon>lock</mat-icon>
+      <input type="password" name="password" formControlName="password" placeholder="Password" />
+    </label>
+    <app-form-error-container [forControl]="passwordControl">
+      <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+    </app-form-error-container>
 
-  <app-form-error-container [forControl]="loginForm">
-    <app-form-error-msg forErrorCode="invalidCredentials"></app-form-error-msg>
-  </app-form-error-container>
+    <app-form-error-container [forControl]="loginForm">
+      <app-form-error-msg forErrorCode="invalidCredentials"></app-form-error-msg>
+    </app-form-error-container>
 
-  <button
-    (click)="signIn()"
-    type="submit"
-    [disabled]="(loginForm.statusChanges | async) !== 'VALID'"
-  >
-    Iniciar Sesión
-  </button>
-</form>
-
-
+    <button
+      (click)="signIn()"
+      type="submit"
+      [disabled]="(loginForm.statusChanges | async) !== 'VALID'"
+    >
+      Iniciar Sesión
+    </button>
+  </form>
+</div>

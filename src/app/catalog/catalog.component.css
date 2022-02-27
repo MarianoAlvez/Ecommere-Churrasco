@@ -1,7 +1,7 @@
 :host {
   display: flex;
   flex-direction: column;
-
+  background-color: rgb(201, 144, 250);
   padding: 16px;
 }
 .catalog-grid {

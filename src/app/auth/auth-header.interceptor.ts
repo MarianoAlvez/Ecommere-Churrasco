@@ -36,6 +36,6 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
   }
 
   private isThirdPartyRequest(url: string): boolean {
-    return url.startsWith(environment.API_LOGIN) === false;
+    return url.startsWith(environment.URL_BASE) === false;
   }
 }

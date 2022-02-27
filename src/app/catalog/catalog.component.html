@@ -1,7 +1,26 @@
-<a routerLink="./" [queryParams]="{ orderBy: 'price' }">Ordenar por precio</a>
+<div fxLayout="row"
+   fxLayoutGap="100px"
+   fxLayout.xs="column">
+
+  <div fxLayoutGap="100px" fxLayout="row">
+    <button mat-raised-button color="primary" >
+      <mat-icon>add</mat-icon>
+      <a routerLink="add-product" > Agregar Nuevo Producto</a>
+    </button>
+
+    <button mat-raised-button color="primary">
+      <mat-icon>trending_up </mat-icon>
+      <a routerLink="./" [queryParams]="{ orderBy: 'price' }"> Ordenar Por Precio</a>
+    </button>
+  </div>
+</div>
+
+<br>
+
 <div class="catalog-grid">
   <app-catalog-product
     *ngFor="let product of orderedProducts$ | async"
     [product]="product"
   ></app-catalog-product>
+
 </div>
