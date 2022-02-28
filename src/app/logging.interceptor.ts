@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -19,13 +20,14 @@ export class LoggingInterceptor implements HttpInterceptor {
     const startedAt = Date.now();
 
     return next.handle(request).pipe(
+
       finalize(() => {
         const timeElapsed = Date.now() - startedAt;
         console.log({
           url: request.urlWithParams,
           timeElapsed,
         });
-      })
+      }) 
     );
   }
 }

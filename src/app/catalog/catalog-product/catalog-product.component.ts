@@ -24,7 +24,7 @@ export class CatalogProductComponent {
   }
 
   navigateToProductDetails(): void {
-    this.router.navigate(['products', this.product.id], {
+    this.router.navigate(['products', this.product._id], {
       relativeTo: this.route,
     });
   }

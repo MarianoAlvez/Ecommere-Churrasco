@@ -1,7 +1,7 @@
 :host {
   display: flex;
   flex-direction: column;
-
+  background: var( --color-3);
   padding: 16px;
 }
 .catalog-grid {
@@ -22,3 +22,9 @@ a:hover,
 a:focus {
   text-decoration: underline;
 }
+
+button{
+  background-color: var( --color-2) !important;
+  margin-left: 30px;
+}
+

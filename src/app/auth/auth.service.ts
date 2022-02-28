@@ -12,10 +12,9 @@ import { InvalidCredentialsError } from './errors';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = environment.API_LOGIN;
+  private baseUrl = environment.URL_BASE;
   private loggedIn = new BehaviorSubject<boolean>(false);
   loggedIn$ = this.loggedIn.asObservable();
-  // tslint:disable-next-line: variable-name
   private _authToken: string | null = null;
   public get authToken(): string | null {
     return this._authToken;
@@ -25,7 +24,7 @@ export class AuthService {
 
   logIn(credentials: LoginCredentials): Observable<never> {
     return this.httpClient
-      .post<SuccessfulLoginDto>(`${this.baseUrl}`, credentials)
+      .post<SuccessfulLoginDto>(`${this.baseUrl}:3005/login`, credentials)
       .pipe(
         tap(({ token }) => this.handleSuccesfulLogin(token)),
         ignoreElements(),
@@ -43,16 +42,18 @@ export class AuthService {
   logOut(): void {
     this.loggedIn.next(false);
     this._authToken = null;
+    localStorage.clear();
     this.redirectToHome();
   }
 
   private handleSuccesfulLogin(token: string): void {
     this.loggedIn.next(true);
     this._authToken = token;
+    localStorage.setItem('token', this.authToken! );
     this.redirectToHome();
   }
 
   private redirectToHome(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['catalog']);
   }
 }

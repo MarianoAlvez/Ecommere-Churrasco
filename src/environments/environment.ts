@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  API_BASE_URL: 'http://churrasco.uk.to:3005/products',
-  API_LOGIN: 'http://churrasco.uk.to:3005/login',
+ URL_BASE:'http://churrasco.uk.to',
 };
 
 /*

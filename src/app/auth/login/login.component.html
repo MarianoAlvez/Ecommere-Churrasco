@@ -1,33 +1,39 @@
-<h1>Inicia Sesión</h1>
-<form [formGroup]="loginForm">
-  <label>
-    Email
-    <input type="email" name="email" formControlName="email" />
-  </label>
-  <app-form-error-container [forControl]="emailControl">
-    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
-    <app-form-error-msg forErrorCode="email"></app-form-error-msg>
-  </app-form-error-container>
+<div class="login-page">
+  <form [formGroup]="loginForm">
 
-  <label>
-    Contraseña
-    <input type="password" name="password" formControlName="password" />
-  </label>
-  <app-form-error-container [forControl]="passwordControl">
-    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
-  </app-form-error-container>
+    <div class="logo">
+      <img src="../assets/LOGO1.png" alt="Logotipo Churrasco">
+    </div>
+    <br>
 
-  <app-form-error-container [forControl]="loginForm">
-    <app-form-error-msg forErrorCode="invalidCredentials"></app-form-error-msg>
-  </app-form-error-container>
+    <div class="input-box">
+        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+        <input type="username" id="input-username" name="username" formControlName="username" placeholder="Username"/>
+          <app-form-error-container [forControl]="usernameControl">
+            <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+            <app-form-error-msg forErrorCode="username"></app-form-error-msg>
+          </app-form-error-container>
+          <hr>
 
-  <button
-    (click)="signIn()"
-    type="submit"
-    [disabled]="(loginForm.statusChanges | async) !== 'VALID'"
-  >
-    Iniciar Sesión
-  </button>
-</form>
+        <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        <input type="password" id="input-password" name="password" formControlName="password" placeholder="Password" />
+          <app-form-error-container [forControl]="passwordControl">
+            <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+          </app-form-error-container>
 
+      <app-form-error-container [forControl]="loginForm">
+        <app-form-error-msg forErrorCode="invalidCredentials"></app-form-error-msg>
+      </app-form-error-container>
+    </div>
 
+    <div class="buttons-box">
+        <input type="checkbox" name="remember" id="remember" >
+        <label class="check-label"> remember</label>
+
+        <button
+        (click)="signIn()" type="submit"
+        [disabled]="(loginForm.statusChanges | async) !== 'VALID'"
+      >Log in </button>
+    </div>
+  </form>
+</div>

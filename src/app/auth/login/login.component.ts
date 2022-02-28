@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,19 +11,20 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required]),
-    password: new FormControl('', Validators.required),
+    username: new FormControl('', [ Validators.required]),
+    password: new FormControl('', [ Validators.required, Validators.minLength(6) ]),
   });
 
-  get emailControl(): FormControl {
-    return this.loginForm.get('email') as FormControl;
+  get usernameControl(): FormControl {
+    return this.loginForm.get('username') as FormControl;
   }
 
   get passwordControl(): FormControl {
     return this.loginForm.get('password') as FormControl;
   }
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,
+              private router: Router) {}
 
   signIn(): void {
     const credentials = this.loginForm.value;
@@ -30,6 +32,8 @@ export class LoginComponent {
     this.authService.logIn(credentials).subscribe({
       error: () => this.loginForm.setErrors({ invalidCredentials: true }),
     });
+
+    
   }
 }
 
