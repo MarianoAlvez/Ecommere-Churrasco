@@ -6,8 +6,8 @@
   height: 93vh;
   margin: 0;
   padding: 0;
-  background: rgb(58,51,118);
-  background: linear-gradient(180deg, rgba(58,51,118,1) 0%, rgba(47,41,94,1) 50%, rgba(34,31,69,1) 100%);
+  background: var(--color-1 );
+  background: var( --badground-1);
 }
 
 .login-page {
@@ -31,20 +31,20 @@ img {
 .input-box {
   position: relative;
   padding: 0px 0;
-  border-radius: 10px;
-  background-color: #fff;
+  border-radius: var( --border-radius-2);
+  background-color: var( --color-4);
 }
 
 input {
   border: none;
   padding: 15px 10px 5px 50px;
   margin: 0px auto;
-  font-size: 18px;
+  font-size: var( --font-size-2);
   line-height: 30px;
   outline: 0;
   display: block;
   width: 100%;
-  caret-color: #bbafaa;
+  caret-color: var( --color-3);
 }
 
 #input-username {
@@ -60,7 +60,7 @@ input {
   position: absolute;
   left: 15px;
   margin-top: 15px;
-  font-size: 15px;
+  font-size: var( --font-size-1);
   color: #bbafaa;
   height: 100%;
   align-items: center;
@@ -68,7 +68,7 @@ input {
 }
 
 ::placeholder {
-  color: #bbafaa;
+  color: var( --color-3);
   font-size: 30px;
 }
 
@@ -86,37 +86,37 @@ input {
 
 .check-label {
   margin-top: 15px;
-  color: #bbafaa;
+  color: var( --color-3);
 }
 
 button {
   position: absolute;
   right: 0px;
-  padding: 10px 24px;
+  padding: 5px 24px;
   margin-top: -5px;
-  color: #d8d8d5;
-  background-color: #3736b2;
-  border-radius: 5px;
+  color: var( --color-5);
+  background-color: var( --color-2);
+  border-radius:  var( --border-radius-1);
   border: none;
-  font-size: 1.4rem;
+  font-size:  var( --font-size-3);
   font-weight: 600;
   cursor: pointer;
 }
 
 button:hover,
 button:focus {
-  background-color: #3c347b;
+  background-color: var( --color-3);
   outline: none;
 }
 
 button:disabled {
-  background-color: #3c347b;
+  background-color: var( --color-6);
   cursor: not-allowed;
 }
 
 .errors-container {
   font-size: 0.75rem;
-  color: #bd0c0c;
+  color: var( --color-alert);
   display: flex;
   flex-direction: column;
 }

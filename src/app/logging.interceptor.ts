@@ -21,13 +21,13 @@ export class LoggingInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
 
-      /* finalize(() => {
+      finalize(() => {
         const timeElapsed = Date.now() - startedAt;
         console.log({
           url: request.urlWithParams,
           timeElapsed,
         });
-      }) */
+      }) 
     );
   }
 }

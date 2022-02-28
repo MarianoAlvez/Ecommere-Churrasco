@@ -1,8 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule } from '@angular/router';
+import { Route, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
-const routes: Route[] = [{ path: 'login', component: LoginComponent }];
+const routes: Routes = [
+    {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/auth/login'
+  }
+];
 
 @NgModule({
   declarations: [],

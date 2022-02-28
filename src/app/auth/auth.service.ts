@@ -51,10 +51,9 @@ export class AuthService {
     this._authToken = token;
     localStorage.setItem('token', this.authToken! );
     this.redirectToHome();
-    //console.log(this._authToken);
   }
 
   private redirectToHome(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['catalog']);
   }
 }

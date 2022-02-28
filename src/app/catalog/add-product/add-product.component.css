@@ -1,3 +1,9 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  background: var( --color-3);
+  padding: 16px;
+}
 
 * {
   margin: 2px;
@@ -9,4 +15,9 @@ h1 {
 
 .image {
   width: 100%;
+}
+
+button{
+  background-color: var( --color-2) !important;
+  margin-left: 30px;
 }
