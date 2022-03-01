@@ -3,15 +3,14 @@ import { Route, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-    {
-    path: 'login',
-    component: LoginComponent
-  },
   {
-    path: '**',
-    redirectTo: '/auth/login'
+    path: '',
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: '**', redirectTo: 'login' }
+    ]
   }
-];
+]
 
 @NgModule({
   declarations: [],
