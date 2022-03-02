@@ -3,13 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { IsLoggedInGuard } from './auth/is-logged-in.guard';
 
 const routes: Routes = [
+
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'login',
-  },
-  {
-    path: 'login',
+    path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
